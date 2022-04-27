@@ -5,6 +5,9 @@ import com.cognizant.simpleCoding.SimpleCoding.modelclass.StudentRegisteration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class StudentServiceClass {
 
@@ -15,6 +18,14 @@ public class StudentServiceClass {
         return registerationRepo.save(studentRegisteration);
     }
 
+    public List<StudentRegisteration> viewStudents()
+    {
+        return registerationRepo.findAll();
+    }
 
+    public Optional<StudentRegisteration> viewStudent(int regi)
+    {
+        return registerationRepo.findById(regi);
+    }
 
 }
